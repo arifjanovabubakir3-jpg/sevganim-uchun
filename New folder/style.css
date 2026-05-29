@@ -1,0 +1,320 @@
+/* Umumiy elementlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #fff0f3, #ffccd5, #ffb3c6);
+    color: #4a1525;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* 1. Kirish sahifasi */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1600') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 15, 23, 0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 3.8rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.explore-btn {
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.5);
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.7);
+}
+
+/* Asosiy tarkib */
+.main-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Sevgi izhori kartasi */
+.poem-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.heart-icon {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    animation: pulse 1.6s infinite ease-in-out;
+}
+
+.poem-text {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: #590d22;
+}
+
+/* Ikkinchi gap kartasi */
+.deep-words-card {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.sparkles {
+    color: #ff4d6d;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #4a1525;
+}
+
+/* Interaktiv Kamon Mexanizmi (Game Zone) */
+.secret-letter-section {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #590d22;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+}
+
+/* Nishon — Yurak */
+.target-heart {
+    font-size: 3.5rem;
+    color: #ffccd5;
+    margin-bottom: 30px;
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+
+.target-heart.active-heart {
+    color: #ff4d6d;
+    transform: scale(1.3);
+    animation: heartbeat 0.8s infinite alternate;
+}
+
+/* Slayder yo'lakchasi */
+.arrow-slider-track {
+    width: 80%;
+    height: 12px;
+    background: #e0aaff;
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Sudraluvchi O'q */
+.draggable-arrow {
+    width: 45px;
+    height: 45px;
+    background: #590d22;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    position: absolute;
+    top: -16px;
+    left: 0;
+    cursor: grab;
+    transform: rotate(45deg); /* O'qni o'ngga qaratish */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+    touch-action: none; /* Mobil qurilmada brauzer skrollini to'xtatadi sudrash paytida */
+}
+
+.draggable-arrow:active {
+    cursor: grabbing;
+    background: #ff4d6d;
+}
+.game-hint {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* Romantik Maktub Dizayni */
+.romantic-letter {
+    width: 100%;
+    animation: fadeIn 0.8s forwards ease-out;
+}
+
+.letter-paper {
+    background: #fffdf6;
+    padding: 40px 30px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 
+                inset 0 0 40px rgba(224, 182, 110, 0.15);
+    border-left: 4px double #ff4d6d;
+    border-right: 4px double #ff4d6d;
+    text-align: left;
+}
+
+.letter-greeting {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    color: #800f2f;
+    margin-bottom: 20px;
+}
+
+.letter-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+    text-indent: 20px;
+}
+
+.letter-signature {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: #ff4d6d;
+    text-align: right;
+    margin-top: 35px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Footer va Mualliflik */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(89, 13, 34, 0.05);
+    margin-top: 50px;
+    border-top: 1px solid rgba(89, 13, 34, 0.1);
+}
+
+.dev-info {
+    font-size: 0.95rem;
+    color: #590d22;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: #ff4d6d;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #590d22;
+}
+
+.footer-love {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    color: #800f2f;
+}
+
+/* ---- ANIMATSIYALAR ---- */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes heartbeat {
+    to { transform: scale(1.4); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== MOBIL MOSLASHUVCHANLIK ========== */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.6rem; }
+    .sub-text { font-size: 1rem; }
+    .poem-text { font-size: 1.7rem; }
+    .quote-text { font-size: 1.05rem; line-height: 1.6; }
+    .main-content { padding: 50px 15px; gap: 45px; }
+    .letter-paper { padding: 30px 20px; }
+    .letter-greeting { font-size: 1.8rem; }
+    .letter-body { font-size: 0.95rem; }
+    .arrow-slider-track { width: 90%; }
+}
